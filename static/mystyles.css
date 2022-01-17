@@ -1,0 +1,158 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+body {
+	background: #2A293E;
+	font-family: 'Raleway', sans-serif;
+}
+
+body h4 {
+	line-height: 1.4em;
+}
+
+.page {
+	font-family: 'Raleway', sans-serif;
+	margin: auto;
+	padding: 2% 0 0;
+	width: 1200px;
+}
+
+.page .container {
+	background: #9E1030;
+	color: #BCBCBE;
+	border-radius: 5px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3), 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+	margin: 5px 0;
+	max-width: 500px;
+	height:500px;
+	padding: 45px;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+
+.page .container .container {
+	height:auto;
+	color: black;
+}
+.page .container #myFile {
+	background: #ffffff;
+	border: 0;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+	margin: 0 0 15px;
+	outline: 0;
+	padding: 15px;
+	width: 100%;
+}
+.page .container #analyseButton {
+	background: #006E51;
+	border: 0;
+	border-radius: 5px;
+	color: #EADEDB;
+	cursor: pointer;
+	font-size: 14px;
+	outline: 0;
+	padding: 15px;
+	text-transform: uppercase;
+	transition: all 0.4 ease;
+	width: 100%;
+}
+
+.page .container analyseButton:hover {
+	background: #BCBCBE;
+	color: #2A293E;
+}
+
+.page .container #clearButton {
+	background: #008CBA;
+	border: 0;
+	border-radius: 5px;
+	color: #EADEDB;
+	cursor: pointer;
+	font-size: 14px;
+	outline: 0;
+	padding: 15px;
+	margin-top:5px;
+	text-transform: uppercase;
+	transition: all 0.4 ease;
+	width: 100%;
+}
+
+.page .container clearButton:hover {
+	background: #BCBCBE;
+	color: #2A293E;
+}
+.page .container #resetButton {
+	background: #e7e7e7;
+	border: 0;
+	border-radius: 5px;
+	color: black;
+	cursor: pointer;
+	font-size: 14px;
+	outline: 0;
+	padding: 15px;
+	margin-top:5px;
+	text-transform: uppercase;
+	transition: all 0.4 ease;
+	width: 100%;
+}
+
+.page .container resetButton:hover {
+	background: #BCBCBE;
+	color: #2A293E;
+}
+
+.page .container.results {
+	display: none;
+	text-align: left;
+}
+
+.page .container.results #displayImage,
+.page .container.results #response {
+	width: 100%;
+}
+
+.page .container.results #response {
+	text-align: left;
+}
+
+textarea {
+	border-radius: 5px;
+	padding: 5px;
+	height: 30vh;
+	width: 97.5%;
+}
+
+.results {
+	text-align: left;
+}
+
+br {
+	display: none;
+}
+
+p {
+	color: gray;
+}
+
+#results {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#results td, #results th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#results tr:nth-child(even){background-color: #f2f2f2;}
+
+#results tr:hover {background-color: #ddd;}
+
+#results th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #262626;
+  color: white;
+}

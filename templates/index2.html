@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/mycss.css">
+  </head>
+<body>
+<div class="page">
+   <div class="container" style="display:inline-block;float:left;">
+      <h2>Sentiment Analysis using NLP</h2>
+      <h4>B2 Project using Flask , Textblob</h4>
+      <div class="form">
+          <form method="POST" action="{{ url_for('analyse')}}" id="myForm">
+              <input id="myFile" type="file"/>
+              <textarea id="input" placeholder="Enter your text here" name="rawtext"></textarea>
+              <input type="submit" onclick="myAnalyser()" id="analyseButton" value="Submit">
+          <!--    <input type="button" onclick="myFunction()" id="clearButton" value="Clear">          -->
+              <a href="{{ url_for('index2')}}"><input type="button" id="resetButton" value="Reset"></a>
+          </form>
+      </div>
+   </div>
+   <div class="container" style="float:right;display:inline-block;">
+   	<div>
+        <div class="container" style="background-color:#f2f2f2;">
+            <div>
+                Main Points
+            </div>
+            <div>
+                <h5>
+                    <div role="alert">
+                    This text has {{number_of_tokens}} tokens with {{len_of_words}} important point
+                    </div>
+                </h5>
+                <div>
+                    <h5>Your Text</h5>
+                    <p style="color:#0091EA;font-family:sans-serif;">{{ received_text }}</p>
+                    <hr/>
+                    <br/>
+                    <p>Time Elapsed: <span style="color:#0091EA;">{{ final_time }} </span> seconds to analyse</p>
+                    <p>This text is about:</p>
+                    {% for i in summary %}
+                    <ul>
+                        <li><span style="color:black">{{i}}</span>
+                            <a href="http://www.dictionary.com/browse/{{i}}?s="  target="_blank" type="button" style="float:right;font-size:9px;color:#fff;">View</a>
+                        </li></ul>
+                    {% endfor %}
+                </div>
+                <div>
+                    <table id="results">
+                        <tr>
+                            <th scope="col">Sentiment</th>
+                            <th scope="col">Polarity</th>
+                            <th scope="col">Subjectivity</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Score:</th>
+                            <td>{{blob_sentiment}}</td>
+                            <td>{{blob_subjectivity}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+</body>
+</html>
+
+{% endblock %}
+
+{% block scripts %}
+
+{{ super() }}
+
+<script>
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+</script>
+<script>
+function myAnalyser() {
+    document.querySelector('.main div').style.display = 'none';
+	//Hide the main division
+	document.querySelector('.main').classList.add('spinner-1');
+	// Server request
+	setTimeout(() => {
+	document.querySelector('.main').classList.remove('spinner-1');
+	//Remove the animation
+	document.querySelector('.main div').style.display = 'block';
+	//Show the main division
+	},5000);//Number of seconds to last
+}
+</script>
+
+<!-- Prevent it from being overwritten -->
+
+{% endblock %}
